@@ -8,6 +8,7 @@ const App = () => {
         <div>
             {/*<JavaScriptLearn />*/}
             <ReactLearn />
+            12
         </div>
     );
 };
