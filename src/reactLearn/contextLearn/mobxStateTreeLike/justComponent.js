@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
-import { Context, provider } from "./store";
+import React from 'react';
+import Butna from './elements/butna'
+import Ipnat from './elements/ipnat'
 
 const JustComponent = () => {
-    const store = useContext(Context);
     return (
         <div>
             <h1>mobx-state-tree like</h1>
-            <button onClick={store.incrementValue}>{store.value}</button>
-            <input type="text" value={store.input} onChange={(e) => {store.setInput(e.target.value)}}/>
+            <Butna />
+            <Ipnat/>
         </div>
     );
 };
 
-export default provider(JustComponent);
+export default JustComponent;

@@ -1,13 +1,14 @@
-import React, {useState} from "react";
+import React, { useReducer } from "react";
 
 const useMobxStateTree = (initialState, actions) => {
-    const [state, setState] = useState({...initialState});
-    const proxySelf = new Proxy(state,  {
+    const reducer = (state, action) => {
+        console.log(action);
+        return {...state, ...action}
+    };
+    const [stat, dispatch] = useReducer(reducer, initialState);
+    const proxySelf = new Proxy(stat,  {
         set(target, prop, val){
-            setState(state => ({
-                ...state,
-                [prop]: val
-            }));
+            dispatch({[prop]: val});
             return true
         }
     });
