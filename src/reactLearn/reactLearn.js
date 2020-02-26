@@ -1,10 +1,12 @@
 import React from 'react';
 import ContextLearn from "./contextLearn/contextLearn";
+import HooksLearn from './hooksLearn/hooksLearn.js'
 
 const ReactLearn = () => {
     return (
         <div>
-            <ContextLearn />
+            {/*<ContextLearn />*/}
+            <HooksLearn />
         </div>
     );
 };

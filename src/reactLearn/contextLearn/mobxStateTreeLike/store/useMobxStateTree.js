@@ -5,8 +5,8 @@ const useMobxStateTree = (initialState, actions) => {
         console.log(action);
         return {...state, ...action}
     };
-    const [stat, dispatch] = useReducer(reducer, initialState);
-    const proxySelf = new Proxy(stat,  {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const proxySelf = new Proxy(state,  {
         set(target, prop, val){
             dispatch({[prop]: val});
             return true
