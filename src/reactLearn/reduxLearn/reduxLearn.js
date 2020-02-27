@@ -1,37 +1,21 @@
-import React, {useEffect} from 'react';
-import {connect} from 'react-redux'
+import React from 'react';
+import {Provider} from 'react-redux'
+import { createStore } from 'redux';
+import FirstChild from './components/someFirstChild'
+import reducer from './templatesStoreRedux'
 
-const ReduxLearn = ({store, addBanner, search, setSearch}) => {
+const store = createStore(reducer);
 
-    useEffect(() => {
-        console.log(search);
-    }, [search]);
+const ReduxLearn = () => {
 
     return (
-        <div className="App">
-            <input type="text" value={search} onChange={event => {setSearch(event.target.value)}}/>
-            <ul>
-                {store.bannersList.filter(item => (
-                    <li key={item}>{item.banner}</li>
-                ))}
-            </ul>
-        </div>
+        <Provider store={store}>
+            <div className='redux-learn'>
+                <FirstChild />
+            </div>
+        </Provider>
     );
 };
 
-export default connect(
-    state => ({store: state, search: state.search}),
-    dispatch => ({
-        addBanner(banner) {
-            const payload = {
-                id: Date.now().toString(),
-                banner
-            };
-            dispatch({type:'ADD_BANNER', payload: payload});
-        },
-        setSearch(value) {
-            dispatch({type: 'SET_SEARCH',payload: value})
-        }
-    })
-)(ReduxLearn);
+export default ReduxLearn;
 

@@ -1,11 +1,15 @@
 
-const bannersList = ['lol', 'kek', 'cheburek'];
+const bannersList = [
+    'Raise your fist Evangelist',
+    'Killers with the Cross',
+    'Midnight Messiah'
+];
 
-const ADD_BANNER = 'ADD_BANNER';
+const ADD_TRACK = 'ADD_TRACK';
 
 const reducer = (state = bannersList, action) => {
     switch (action.type){
-        case ADD_BANNER:
+        case ADD_TRACK:
             return [
                 ...state,
                 action.payload
