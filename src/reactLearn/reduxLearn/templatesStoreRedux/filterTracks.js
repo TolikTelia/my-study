@@ -1,13 +1,12 @@
 import {getChanger} from "./index";
 
-const searchState = '';
+const initialState = '';
 
-const SET_SEARCH = 'SET_SEARCH';
+const FIND_TRACK = 'FIND_TRACK';
 
-
-const reducer = (state = searchState, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type){
-        case SET_SEARCH:
+        case FIND_TRACK:
             return  action.payload;
         default:
             return state

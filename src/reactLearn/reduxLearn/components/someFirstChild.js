@@ -1,19 +1,37 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {connect} from 'react-redux'
 
-const SomeFirstChild = ({bannersList, addBanner, search, setSearch}) => {
+const SomeFirstChild = ({trackList, addTrack, findTrack}) => {
+
+    const trackInput = useRef(null);
+    const searchInput = useRef(null);
+
 
     useEffect(() => {
-        console.log(search);
-    }, [search]);
+        // console.log(search);
+    }, []);
+
+    const addTrackHandle = () => {
+        addTrack(trackInput.current.value);
+        trackInput.current.value = ''
+    };
+    const findTrackHandle = () => {
+        findTrack(searchInput.current.value)
+    };
 
     return (
         <div className="App">
-            <input type="text" value={search} onChange={event => {setSearch(event.target.value)}}/>
-            <button>add track</button>
+            <div>
+                <input type="text" ref={trackInput}/>
+                <button onClick={addTrackHandle}>add track</button>
+            </div>
+            <div>
+                <input type="text" ref={searchInput}/>
+                <button onClick={findTrackHandle}>find track</button>
+            </div>
             <ul>
-                {bannersList.map(item => (
-                    <li key={item}>{item}</li>
+                {trackList.map(item => (
+                    <li key={item}>{item.name}</li>
                 ))}
             </ul>
         </div>
@@ -21,17 +39,19 @@ const SomeFirstChild = ({bannersList, addBanner, search, setSearch}) => {
 };
 
 export default connect(
-    state => ({bannersList: state.bannersList, search: state.search}),
+    state => ({
+        trackList: state.trackList.filter(track => track.name.includes(state.filterTracks)),
+    }),
     dispatch => ({
-        addBanner(banner) {
+        addTrack(trackName) {
             const payload = {
                 id: Date.now().toString(),
-                banner
+                name: trackName
             };
-            dispatch({type:'ADD_BANNER', payload: payload});
+            dispatch({type:'ADD_TRACK', payload: payload});
         },
-        setSearch(value) {
-            dispatch({type: 'SET_SEARCH',payload: value})
+        findTrack: (name) => {
+            dispatch({type: 'FIND_TRACK', payload: name})
         }
     })
 )(SomeFirstChild);

@@ -1,7 +1,8 @@
 import {combineReducers} from "redux";
 
-import bannersList from './bannersList'
-import search from './search'
+import trackList from './trackList'
+import playlists from './playlists'
+import filterTracks from './filterTracks'
 
 export const getChanger = (state) => {
     return (nextObj) => (
@@ -13,6 +14,7 @@ export const getChanger = (state) => {
 };
 
 export default combineReducers({
-    bannersList,
-    search
+    trackList,
+    playlists,
+    filterTracks
 })

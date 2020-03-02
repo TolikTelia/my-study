@@ -1,19 +1,21 @@
 
-const bannersList = [
-    'Raise your fist Evangelist',
-    'Killers with the Cross',
-    'Midnight Messiah'
-];
+const trackList = [
+
+]
 
 const ADD_TRACK = 'ADD_TRACK';
+const DELETE_TRACK = 'DELETE_TRACK';
 
-const reducer = (state = bannersList, action) => {
+
+const reducer = (state = trackList, action) => {
     switch (action.type){
         case ADD_TRACK:
             return [
                 ...state,
                 action.payload
             ];
+        case DELETE_TRACK:
+            return state;
         default:
             return state
     }
