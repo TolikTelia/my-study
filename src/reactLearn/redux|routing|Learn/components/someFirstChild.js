@@ -1,7 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import {connect} from 'react-redux'
 
-const SomeFirstChild = ({trackList, addTrack, findTrack}) => {
+import {getTracks} from '../actions/tracks'
+
+const SomeFirstChild = ({trackList, addTrack, findTrack, getTracks}) => {
 
     const trackInput = useRef(null);
     const searchInput = useRef(null);
@@ -29,6 +31,9 @@ const SomeFirstChild = ({trackList, addTrack, findTrack}) => {
                 <input type="text" ref={searchInput}/>
                 <button onClick={findTrackHandle}>find track</button>
             </div>
+            <div>
+                <button onClick={getTracks}>get tracks</button>
+            </div>
             <ul>
                 {trackList.map(item => (
                     <li key={item}>{item.name}</li>
@@ -52,6 +57,9 @@ export default connect(
         },
         findTrack: (name) => {
             dispatch({type: 'FIND_TRACK', payload: name})
+        },
+        getTracks: () => {
+            dispatch(getTracks())
         }
     })
 )(SomeFirstChild);
