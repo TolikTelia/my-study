@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom'
+import Navbar from './components/navbar'
 import Main from './components/main'
 import Contacts from './components/contacts'
 import About from './components/about'
@@ -10,11 +11,7 @@ const RoutingLearn = () => {
     return (
         <Router>
             <div>
-                <ul>
-                    <li><a href='/'>main</a></li>
-                    <li><a href='/about'>about</a></li>
-                    <li><a href='/contacts'>contacts</a></li>
-                </ul>
+                <Navbar />
                 <Switch>
                     <Route exact path='/' component={Main}/>
                     <Route exact path='/contacts' component={Contacts}/>
