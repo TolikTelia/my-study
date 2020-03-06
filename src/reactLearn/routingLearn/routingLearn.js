@@ -15,7 +15,7 @@ const RoutingLearn = () => {
                 <Switch>
                     <Route exact path='/' component={Main}/>
                     <Route exact path='/contacts' component={Contacts}/>
-                    <Route exact path='/about' component={About}/>
+                    <Route  path='/about' component={About}/>
                     <Route component={Other}/>
                 </Switch>
             </div>
