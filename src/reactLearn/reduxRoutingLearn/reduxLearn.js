@@ -4,8 +4,6 @@ import { createStore, applyMiddleware } from 'redux';
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from 'redux-thunk'
 
-import {Router, Route} from "react-router"; // ??
-
 import FirstChild from './components/someFirstChild'
 import reducer from './reducers'
 

@@ -4,11 +4,11 @@ import Main from "./children/main";
 import Contacts from "./children/contacts";
 import About from "./children/about";
 import Other from "./children/other";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const SwitchComponent = () => {
 
-    let location = useLocation();
+    // let location = useLocation();
 
     return (
         <>
@@ -19,9 +19,9 @@ const SwitchComponent = () => {
                 {/*timeout={300}*/}
             {/*>*/}
                 <Switch>
-                    <Route exact path='/' component={Main}/>
-                    <Route exact path='/contacts' component={Contacts}/>
-                    <Route  path='/about' component={About}/>
+                    <Route path='/contacts' component={Contacts}/>
+                    <Route path='/about' component={About}/>
+                    <Route path='/' component={Main}/>
                     <Route component={Other}/>
                 </Switch>
              {/*</CSSTransition>*/}

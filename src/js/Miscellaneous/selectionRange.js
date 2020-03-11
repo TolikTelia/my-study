@@ -5,7 +5,7 @@ const SelectionRange = () => {
     const someRef = useRef(null);
 
     useEffect(() => {
-        const range = new Range();
+        // const range = new Range();
         const txte = someRef.current
 
         console.log(txte.firstChild)
