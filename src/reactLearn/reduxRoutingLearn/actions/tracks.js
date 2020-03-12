@@ -1,4 +1,4 @@
-const mockData = [
+export const mockData = [
     {
         id: 1,
         name: 'some'
@@ -20,10 +20,25 @@ const mockData = [
         name: 'redux'
     }
 ];
-
-export const getTracks = () => dispatch => {
+// thunk learn
+export const getTracks = () => (dispatch, getState) => {
     setTimeout(() => {
         console.log('got tracks');
+        console.log(getState());
         dispatch({ type: 'FETCH_TRACKS_SUCCESS', payload: mockData })
     }, 2000)
+};
+
+// saga learn
+export const putTracks = (data) => {
+    return {
+        type: 'PUT_TRACKS',
+        payload: data
+    };
+};
+
+export const loadTracks = () => {
+    return {
+      type: 'LOAD_TRACKS'
+    };
 };

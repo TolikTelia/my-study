@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import {connect} from 'react-redux'
 
-import {getTracks} from '../actions/tracks'
+import {getTracks, loadTracks} from '../actions/tracks'
 
-const SomeFirstChild = ({trackList, addTrack, findTrack, getTracks}) => {
+const SomeFirstChild = ({trackList, addTrack, findTrack, loadTracks}) => {
 
     const trackInput = useRef(null);
     const searchInput = useRef(null);
@@ -32,7 +32,7 @@ const SomeFirstChild = ({trackList, addTrack, findTrack, getTracks}) => {
                 <button onClick={findTrackHandle}>find track</button>
             </div>
             <div>
-                <button onClick={getTracks}>get tracks</button>
+                <button onClick={loadTracks}>get tracks</button>
             </div>
             <ul>
                 {trackList.map(item => (
@@ -58,8 +58,11 @@ export default connect(
         findTrack: (name) => {
             dispatch({type: 'FIND_TRACK', payload: name})
         },
-        getTracks: () => {
-            dispatch(getTracks())
+        // getTracks: () => {
+        //     dispatch(getTracks()) // thunk
+        // },
+        loadTracks: () => {
+            dispatch(loadTracks())
         }
     })
 )(SomeFirstChild);

@@ -9,8 +9,8 @@ const ReactLearn = () => {
         <div>
             {/*<ContextLearn />*/}
             {/*<HooksLearn />*/}
-            {/*<ReduxLearn />*/}
-            <RoutingLearn />
+            <ReduxLearn />
+            {/*<RoutingLearn />*/}
         </div>
     );
 };
