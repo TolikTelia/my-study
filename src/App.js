@@ -6,6 +6,7 @@ import ReactLearn from "./reactLearn/reactLearn";
 const App = () => {
     return (
         <div>
+            <h1>this is my study))0)</h1>
             {/*<JavaScriptLearn />*/}
             <ReactLearn />
         </div>
