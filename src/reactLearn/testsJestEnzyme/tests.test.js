@@ -103,3 +103,21 @@ test('promise code', () => {
        expect(data).toBe(2)
    })
 });
+
+
+test('promise should be resolved', () => {
+   return expect(asyncShtuka()).resolves.toBe(2)
+});
+
+const prom = new Promise((resolve,reject) => {
+    reject('error')
+});
+
+test('promise should be rejected', () => {
+    return expect(prom).rejects.toMatch('error')
+});
+
+test('you could use async callback))', async () => {
+   const some = await asyncShtuka();
+   expect(some).toBe(2);
+});
