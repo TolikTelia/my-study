@@ -9,6 +9,7 @@ import createSagaMiddleware from 'redux-saga';
 import { watchLoadTracks } from "./sagas";
 
 import FirstChild from './components/someFirstChild'
+import ReduxFormLearn from './components/reduxFormLearn'
 import reducer from './reducers'
 
 // const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -24,6 +25,7 @@ const ReduxLearn = () => {
         <Provider store={store}>
             <div className='redux-learn'>
                 <FirstChild />
+                <ReduxFormLearn />
             </div>
         </Provider>
     );
