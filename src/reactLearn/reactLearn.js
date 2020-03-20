@@ -12,6 +12,7 @@ const ReactLearn = () => {
             {/*<HooksLearn />*/}
             {/*<ReduxLearn />*/}
             {/*<RoutingLearn />*/}
+            <MobxLearn />
         </div>
     );
 };

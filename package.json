@@ -43,6 +43,8 @@
   },
   "devDependencies": {
     "jest": "^24.9.0",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.8",
     "react-test-renderer": "^16.13.0"
   }
 }
