@@ -4,6 +4,7 @@ import HooksLearn from './hooksLearn/hooksLearn.js'
 import ReduxLearn from './reduxRoutingLearn/reduxLearn'
 import RoutingLearn from './routingLearn/routingLearn'
 import MobxLearn from "./mobxLearn/mobxLearn";
+import MobxStateTree from "./mobx-state-tree/mobxStateTree";
 
 const ReactLearn = () => {
     return (
@@ -12,7 +13,8 @@ const ReactLearn = () => {
             {/*<HooksLearn />*/}
             {/*<ReduxLearn />*/}
             {/*<RoutingLearn />*/}
-            <MobxLearn />
+            {/*<MobxLearn />*/}
+            <MobxStateTree />
         </div>
     );
 };
