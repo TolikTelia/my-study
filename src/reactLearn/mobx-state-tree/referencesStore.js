@@ -42,18 +42,32 @@ const itemModel = types
     }));
 
 const interastingReference= types.reference(itemModel, {
-   // get
+    get(identifier, parent) {
+        const version = parent.versions.find(v => v.id === identifier);
+        console.log(identifier);
+        return version ? [version, identifier] : null
+    },
+    // given a user, produce the identifier that should be stored
+    set(value /* User */) {
+        return value.id
+    }
 });
 
 const stora = types.model({
     versions: types.array(itemModel),
-    selectedItem: types.reference(itemModel)
+    selectedItem: interastingReference
 }).views(self => ({
 
 })).actions(self => ({
     setSelected(id) {
         self.selectedItem = id
+    },
+    setFnuceton(value) {
+        console.log(23);
+        self.fnuceton = value
     }
+})).volatile(self => ({
+   fnuceton: 2
 }));
 
 const store = stora.create({selectedItem: Date.now(), versions: mockData});

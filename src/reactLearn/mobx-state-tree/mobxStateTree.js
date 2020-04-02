@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import store from './store'
 import anotherStore from './referencesStore'
 import { observer } from 'mobx-react';
+
+const ChildComponent = observer(() => {
+    if (typeof anotherStore.fnuceton === 'function') {
+        anotherStore.fnuceton()
+    }
+
+    return (
+        <div>I'm a child)0))</div>
+    )
+});
 
 const MobxStateTree = () => {
     const {
@@ -14,7 +24,11 @@ const MobxStateTree = () => {
     } = store;
 
     console.dir(anotherStore.selectedItem);
-
+    useEffect(() => {
+        anotherStore.setFnuceton(() => {
+            console.log(1);
+        })
+    }, []);
     return (
         <div>
             <p>sanpshots {snapshotsCount}</p>
@@ -33,6 +47,7 @@ const MobxStateTree = () => {
                     </li>
                 ))}
             </ul>
+            <ChildComponent />
         </div>
     );
 };
