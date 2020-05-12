@@ -55,7 +55,12 @@ const interastingReference= types.reference(itemModel, {
 
 const stora = types.model({
     versions: types.array(itemModel),
-    selectedItem: interastingReference
+    selectedItem: interastingReference,
+    typoRandom: types.union(
+        types.string,
+        types.boolean,
+        types.number
+    )
 }).views(self => ({
 
 })).actions(self => ({
@@ -70,6 +75,16 @@ const stora = types.model({
    fnuceton: 2
 }));
 
-const store = stora.create({selectedItem: Date.now(), versions: mockData});
+const getRandomType = () => {
+    const type = Math.floor(Math.random() * 3)
+    const types = [1, false, 'string']
+    return types[type]
+}
+
+const store = stora.create({
+    selectedItem: Date.now(),
+    versions: mockData,
+    typoRandom: getRandomType()
+});
 
 export default store

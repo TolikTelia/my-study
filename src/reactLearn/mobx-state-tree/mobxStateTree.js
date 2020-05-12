@@ -8,7 +8,9 @@ const ChildComponent = observer(() => {
         anotherStore.fnuceton()
     }
 
-    return (
+  console.log(anotherStore);
+
+  return (
         <div>I'm a child)0))</div>
     )
 });
