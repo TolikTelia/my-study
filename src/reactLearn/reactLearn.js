@@ -9,11 +9,11 @@ import MobxStateTree from "./mobx-state-tree/mobxStateTree";
 const ReactLearn = () => {
     return (
         <div>
-            {/*<ContextLearn />*/}
-            {/*<HooksLearn />*/}
-            {/*<ReduxLearn />*/}
-            {/*<RoutingLearn />*/}
-            {/*<MobxLearn />*/}
+            <ContextLearn />
+            <HooksLearn />
+            <ReduxLearn />
+            <RoutingLearn />
+            <MobxLearn />
             <MobxStateTree />
         </div>
     );
